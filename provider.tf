@@ -22,7 +22,7 @@ provider "ovh" {
 
   application_key    = var.ovh_access_token.app_key
   application_secret = var.ovh_access_token.app_secret
-  #consumer_key       = var.ovh_access_token.consumer_key
+  consumer_key       = var.ovh_access_token.consumer_key
 }
 
 provider "openstack" {
@@ -32,5 +32,6 @@ provider "openstack" {
   password  = var.project_user_password
   tenant_id = var.project_id
 }
+
 
 
