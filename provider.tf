@@ -18,7 +18,7 @@ terraform {
 }
 
 provider "ovh" {
-  endpoint = "ovh-us"
+  endpoint = "ovh-eu"
 
   application_key    = var.ovh_access_token.app_key
   application_secret = var.ovh_access_token.app_secret
@@ -32,6 +32,7 @@ provider "openstack" {
   password  = var.project_user_password
   tenant_id = var.project_id
 }
+
 
 
 
