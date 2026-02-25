@@ -11,12 +11,6 @@ variable "default_os_image" {
   description = "The OS image to use, if not given is vm[*].os_image."
   type        = string
   default     = "op-ovh-debian_12"
-  nullable    = false
-
-  validation {
-    condition     = var.default_os_image != ""
-    error_message = "Default OS image should not be empty."
-  }
 }
 
 variable "vms" {
@@ -46,5 +40,6 @@ variable "public_key" {
   type        = string
   description = "Existing SSH public key to be able to connect to the vm(s)."
 }
+
 
 
