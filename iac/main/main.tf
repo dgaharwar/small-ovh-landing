@@ -6,7 +6,7 @@ module "user_project" {
 }
 
 data "openstack_images_image_v2" "images" {
-  for_each      = toset(concat([for v in var.vms : v.os_image if v.os_image != "" && v.os_image != null], [var.default_os_image]))
+  for_each      = toset(concat([for v in v.os_image if v.os_image != "" && v.os_image != null], [var.default_os_image]))
   name          = each.value
   most_recent   = true
   member_status = "all"
@@ -26,4 +26,5 @@ resource "openstack_images_image_access_accept_v2" "accepted_images" {
   status     = "accepted"
   depends_on = [module.user_project]
 }
+
 
