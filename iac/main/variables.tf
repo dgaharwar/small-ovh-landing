@@ -13,16 +13,6 @@ variable "default_os_image" {
   default     = "op-ovh-debian_12"
 }
 
-variable "vms" {
-  type = map(object({
-    secgroup_ids = optional(list(string), [])
-    os_image     = string
-    os_flavor    = string
-  }))
-  description = "VM(s) to deploy. map name => secgroup ids to apply."
-  default     = {}
-}
-
 variable "ovh_region" {
   type = string
 }
@@ -40,6 +30,7 @@ variable "public_key" {
   type        = string
   description = "Existing SSH public key to be able to connect to the vm(s)."
 }
+
 
 
 
