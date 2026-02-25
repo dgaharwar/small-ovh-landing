@@ -1,6 +1,6 @@
 terraform {
   # Need for_each on providers, available in OpenTofu v1.9.0
-  required_version = ">= 1.9.0"
+  #required_version = ">= 1.9.0"
   required_providers {
     openstack = {
       source  = "terraform-provider-openstack/openstack"
@@ -22,7 +22,7 @@ provider "ovh" {
 
   application_key    = var.ovh_access_token.app_key
   application_secret = var.ovh_access_token.app_secret
-  consumer_key       = var.ovh_access_token.consumer_key
+  #consumer_key       = var.ovh_access_token.consumer_key
 }
 
 provider "openstack" {
@@ -32,3 +32,4 @@ provider "openstack" {
   password  = var.project_user_password
   tenant_id = var.project_id
 }
+
