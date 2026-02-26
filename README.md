@@ -1,1 +1,0 @@
-# small-ovh-landing
