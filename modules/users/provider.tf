@@ -8,11 +8,3 @@ terraform {
     }
   }
 }
-
-provider "openstack" {
-  auth_url    = var.auth_url
-  region      = var.region
-  user_name   = var.user_name
-  password    = var.password
-  tenant_name = var.project_name
-}
