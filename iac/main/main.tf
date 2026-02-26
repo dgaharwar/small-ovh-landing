@@ -1,30 +1,19 @@
-module "user_project" {
-  source = "../../modules/users"
-  # source     = "git::https://morpheus-sensitive-int-mastertenant-ovhlanding:glpat-Y7cYt1vr9Hv90AOGjoQaiG86MQp1OjhtCA.01.0y1k5yq53@gitlab.apsys-airbus.com/oneplatform/clouds/small-ovh-landing.git//modules/users?ref=MAGL/integration-morpheus2"
-  project_id = var.project_id
-  #roles      = ["administrator"]
+module "compute" {
+  source = "../../modules/compute"
+
+  instance_name = var.instance_name
+  flavor_name   = var.flavor_name
+  image_name   = var.image_name
+  key_pair     = var.key_pair
+  network_name = var.network_name
 }
 
-data "openstack_images_image_v2" "images" {
-  name          = each.value
-  most_recent   = true
-  member_status = "all"
-  depends_on    = [module.user_project]
+output "instance_id" {
+  value       = module.compute.instance_id
+  description = "ID of the created OpenStack instance"
 }
 
-
-resource "openstack_compute_keypair_v2" "iaas_keypair" {
-  name       = "test-key"
-  public_key = var.public_key
-  depends_on = [module.user_project]
+output "instance_ip" {
+  value       = module.compute.instance_ip
+  description = "Private IP address of the instance"
 }
-
-resource "openstack_images_image_access_accept_v2" "accepted_images" {
-  for_each   = data.openstack_images_image_v2.images
-  image_id   = each.value.id
-  status     = "accepted"
-  depends_on = [module.user_project]
-}
-
-
-
