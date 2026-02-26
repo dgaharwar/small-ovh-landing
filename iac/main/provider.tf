@@ -15,4 +15,6 @@ provider "openstack" {
   user_name   = var.user_name
   password    = var.password
   tenant_name = var.project_name
+  insecure    = var.verify_ssl == false
 }
+
