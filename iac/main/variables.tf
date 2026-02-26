@@ -53,5 +53,6 @@ variable "network_name" {
 }
 
 variable "verify_ssl" {
-  default = false
+  default = true
 }
+
