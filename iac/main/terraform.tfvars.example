@@ -1,5 +1,0 @@
-instance_name = "my-openstack-instance"
-flavor_name   = "m1.small"
-image_name    = "Ubuntu 22.04"
-key_pair      = "dg_morph_key"
-network_name  = "VLAN0004 - OpenStack Managed Pool subnet"
