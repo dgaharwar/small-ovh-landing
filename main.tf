@@ -1,5 +1,5 @@
 module "compute" {
-  source = "./modules/compute"
+  source = "./modules/users"
 
   instance_name = var.instance_name
   flavor_name   = var.flavor_name
@@ -7,4 +7,5 @@ module "compute" {
   key_pair     = var.key_pair
   network_name = var.network_name
 }
+
 
