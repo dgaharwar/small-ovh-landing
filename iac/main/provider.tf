@@ -1,16 +1,14 @@
 terraform {
+  required_version = ">= 1.0"
+
   required_providers {
     openstack = {
       source  = "terraform-provider-openstack/openstack"
-      version = "~> 3.4"
+      version = "~> 1.51"
     }
   }
 }
 
 provider "openstack" {
-  auth_url  = "https://auth.cloud.ovh.net/"
-  region    = var.ovh_region
-  user_name = var.project_user_username
-  password  = var.project_user_password
-  tenant_id = var.project_id
+  # Credentials via environment: OS_AUTH_URL, OS_USERNAME, OS_PASSWORD, etc.
 }
