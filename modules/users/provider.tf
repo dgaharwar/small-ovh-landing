@@ -1,9 +1,14 @@
 terraform {
-  required_version = ">= 0.14.0"
+  required_version = ">= 1.0"
+
   required_providers {
-    ovh = {
-      source  = "ovh/ovh"
-      version = "> 2.0"
+    openstack = {
+      source  = "terraform-provider-openstack/openstack"
+      version = "~> 1.51"
     }
   }
+}
+
+provider "openstack" {
+  # Credentials via environment: OS_AUTH_URL, OS_USERNAME, OS_PASSWORD, etc.
 }
