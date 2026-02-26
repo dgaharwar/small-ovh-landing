@@ -1,3 +1,31 @@
+variable "auth_url" {
+  description = "OpenStack authentication URL"
+  type        = string
+  sensitive   = true
+}
+
+variable "region" {
+  description = "OpenStack region"
+  type        = string
+}
+
+variable "user_name" {
+  description = "OpenStack username"
+  type        = string
+  sensitive   = true
+}
+
+variable "password" {
+  description = "OpenStack password"
+  type        = string
+  sensitive   = true
+}
+
+variable "project_name" {
+  description = "OpenStack project (tenant) name"
+  type        = string
+}
+
 variable "instance_name" {
   description = "Name of the OpenStack instance"
   type        = string
