@@ -10,5 +10,9 @@ terraform {
 }
 
 provider "openstack" {
-  # Credentials via environment: OS_AUTH_URL, OS_USERNAME, OS_PASSWORD, etc.
+  auth_url    = var.auth_url
+  region      = var.region
+  user_name   = var.user_name
+  password    = var.password
+  tenant_name = var.project_name
 }
