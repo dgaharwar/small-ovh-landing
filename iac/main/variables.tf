@@ -29,7 +29,7 @@ variable "project_name" {
 variable "instance_name" {
   description = "Name of the OpenStack instance"
   type        = string
-  default     = "tf-instance"
+  default     = ""
 }
 
 variable "flavor_name" {
@@ -51,3 +51,4 @@ variable "network_name" {
   description = "Name of the network to attach the instance to"
   type        = string
 }
+
