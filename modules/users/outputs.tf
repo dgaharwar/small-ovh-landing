@@ -1,5 +1,9 @@
-output "user" {
-  value       = ovh_cloud_project_user.iac_user
-  description = "Detailed information of user dedicated to manage resources."
-  sensitive   = true
+output "instance_id" {
+  value       = openstack_compute_instance_v2.instance.id
+  description = "ID of the created instance"
+}
+
+output "instance_ip" {
+  value       = try(openstack_compute_instance_v2.instance.network[0].fixed_ip_v4, "")
+  description = "Private IP address of the instance"
 }
