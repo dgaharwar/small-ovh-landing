@@ -1,36 +1,25 @@
-variable "ovh_access_token" {
-  type = object({
-    app_key      = string
-    app_secret   = string
-    consumer_key = string
-  })
-  description = "OVH API application key/secret and consumer key. Created using [https://www.ovh.com/auth/api/createToken?GET=/*&POST=/cloud/project/3119ad56589a4417a0c28dabd237878b/user*&PUT=/cloud/project/3119ad56589a4417a0c28dabd237878b/user*&DELETE=/cloud/project/3119ad56589a4417a0c28dabd237878b/user*&DELETE=/cloud/project/3119ad56589a4417a0c28dabd237878b/region/GRA11/gateway*&POST=/cloud/project/3119ad56589a4417a0c28dabd237878b/region/GRA11/network/*]"
-  default     = null
-}
-variable "default_os_image" {
-  description = "The OS image to use, if not given is vm[*].os_image."
+variable "instance_name" {
+  description = "Name of the OpenStack instance"
   type        = string
-  default     = "op-ovh-debian_12"
+  default     = "tf-instance"
 }
 
-variable "ovh_region" {
-  type = string
-}
-variable "project_user_username" {
-  type = string
-}
-variable "project_user_password" {
-  type = string
-}
-variable "project_id" {
-  type = string
-}
-
-variable "public_key" {
+variable "flavor_name" {
+  description = "OpenStack flavor (instance type) name"
   type        = string
-  description = "Existing SSH public key to be able to connect to the vm(s)."
 }
 
+variable "image_name" {
+  description = "OpenStack image name (e.g., Ubuntu 22.04)"
+  type        = string
+}
 
+variable "key_pair" {
+  description = "Name of the SSH key pair to inject"
+  type        = string
+}
 
-
+variable "network_name" {
+  description = "Name of the network to attach the instance to"
+  type        = string
+}
